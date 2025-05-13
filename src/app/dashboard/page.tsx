@@ -373,7 +373,7 @@ const DashboardPage: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen p-6 bg-indigo-950/10 backdrop-blur-sm rounded-2xl">
+    <div className="flex flex-col items-center justify-center min-h-screen p-6 bg-foreground1/10 backdrop-blur-sm rounded-2xl">
       {/* Video Editor Popup */}
       {showEditor && (
         <VideoEditorPopup

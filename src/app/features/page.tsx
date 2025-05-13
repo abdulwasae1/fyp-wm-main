@@ -9,14 +9,14 @@ import { Zap } from "lucide-react";
 const FeaturesPage = () => {
     return (
         <MarketingLayout>
-            <section className="w-full flex flex-col items-center justify-center p-6 bg-indigo-950/10 backdrop-blur-sm rounded-2xl md:px-8">
+            <section className="w-full flex flex-col items-center justify-center p-6 bg-foreground1/10 backdrop-blur-sm rounded-2xl md:px-8">
                 <Container>
                     <div className="flex flex-col items-center text-center gap-16 max-w-5xl mx-auto">
 
                         {/* Features Introduction */}
                         <FadeInSection direction="bottom">
                             <div className="flex flex-col items-center gap-6">
-                                <h1 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-gray-50 to-gray-400">
+                                <h1 className="text-4xl md:text-5xl font-bold bg-clip-text ">
                                     Trimix Features
                                 </h1>
                                 <p className="text-lg text-muted-foreground max-w-3xl">

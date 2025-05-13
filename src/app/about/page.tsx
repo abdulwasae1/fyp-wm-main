@@ -14,7 +14,7 @@ const AboutPage = () => {
                         {/* Project Introduction */}
                         <FadeInSection direction="bottom">
                             <div className="flex flex-col items-center gap-6">
-                                <h1 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-gray-50 to-gray-400">
+                                <h1 className="text-4xl md:text-5xl font-bold bg-clip-text ">
                                     About Us
                                 </h1>
                                 {/* <p className="text-lg text-muted-foreground max-w-3xl">
@@ -29,7 +29,7 @@ const AboutPage = () => {
                         </FadeInSection>
 
                         {/* Abdul Wasae Section */}
-                        <div className="flex flex-col md:flex-row items-center gap-10 w-full p-6 bg-indigo-950/50 backdrop-blur-md rounded-2xl">
+                        <div className="flex flex-col md:flex-row items-center gap-10 w-full p-6 bg-foreground1/30 backdrop-blur-md rounded-2xl">
                             {/* Image */}
                             <FadeInSection direction="left">
                                 <div className="w-60 h-60 relative rounded-full overflow-hidden border-4 border-primary shadow-lg">
@@ -56,7 +56,7 @@ const AboutPage = () => {
                         </div>
 
                         {/* Manan Shabbir Section */}
-                        <div className="flex flex-col md:flex-row-reverse items-center gap-10 w-full mt-20 p-6 bg-indigo-950/50 backdrop-blur-md rounded-2xl">
+                        <div className="flex flex-col md:flex-row-reverse items-center gap-10 w-full mt-20 p-6 bg-foreground1/30 backdrop-blur-md rounded-2xl">
                             {/* Image */}
                             <FadeInSection direction="right">
                                 <div className="w-60 h-60 relative rounded-full overflow-hidden border-4 border-primary shadow-lg">

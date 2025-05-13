@@ -20,7 +20,7 @@ const PricingPage = () => {
                         {/* Pricing Introduction */}
                         <FadeInSection direction="bottom">
                             <div className="flex flex-col items-center gap-6">
-                                <h1 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-gray-50 to-gray-400">
+                                <h1 className="text-4xl md:text-5xl font-bold bg-clip-text ">
                                     Our Pricing Plans
                                 </h1>
                                 <p className="text-lg text-muted-foreground max-w-3xl">
@@ -64,7 +64,7 @@ const PricingPage = () => {
                                                 href="#"
                                                 className={cn(
                                                     "w-full text-center text-primary-foreground bg-primary p-2 rounded-md text-sm font-medium",
-                                                    card.title !== "Unlimited Saas" && "!bg-foreground !text-background"
+                                                    card.title !== "Unlimited Saas" && "!bg-foreground1 !text-background"
                                                 )}
                                             >
                                                 {card.buttonText}

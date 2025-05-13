@@ -331,7 +331,7 @@ const VideoEditorPopup: React.FC<VideoEditorPopupProps> = ({ videoUrl, onClose }
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm">
-      <div className="w-full max-w-4xl bg-indigo-950/90 border border-indigo-900 rounded-2xl p-6 shadow-xl overflow-hidden">
+      <div className="w-full max-w-4xl bg-foreground1/90 border border-indigo-900 rounded-2xl p-6 shadow-xl overflow-hidden">
         <div className="flex justify-between items-center mb-4">
           <h2 className="text-xl font-bold text-white">Video Editor</h2>
           <Button 

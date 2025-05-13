@@ -76,7 +76,7 @@ const HomePage = () => {
                         loop
                         autoPlay
                         muted
-                        className="rounded-md lg:rounded-xl bg-foreground/10 shadow-2xl ring-1 ring-border opacity-60"
+                        className="rounded-md lg:rounded-xl bg-foreground1/10 shadow-2xl ring-1 ring-border opacity-60"
                     ></video>
 
                         <BorderBeam size={250} duration={12} delay={9} />
@@ -208,7 +208,7 @@ const HomePage = () => {
                                 href="#"
                                 className={cn(
                                     "w-full text-center text-primary-foreground bg-primary p-2 rounded-md text-sm font-medium",
-                                    card.title !== "Unlimited Saas" && "!bg-foreground !text-background"
+                                    card.title !== "Unlimited Saas" && "!bg-foreground1 !text-background"
                                 )}
                             >
                                 {card.buttonText}
