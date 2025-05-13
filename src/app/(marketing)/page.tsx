@@ -30,7 +30,7 @@ const HomePage = () => {
 
     {/* hero */}
     <Wrapper>
-        <div className="absolute inset-0 dark:bg-[linear-gradient(to_right,#e2e8f0_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f0_1px,transparent_1px)] bg-[linear-gradient(to_right,#161616_1px,transparent_1px),linear-gradient(to_bottom,#161616_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_110%)] -z-10 h-[150vh]" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#161616_1px,transparent_1px),linear-gradient(to_bottom,#161616_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_110%)] -z-10 h-[150vh]" />
 
         <Container>
             <div className="flex flex-col items-center justify-center py-20 h-full">
@@ -47,8 +47,8 @@ const HomePage = () => {
                 </button>
 
                 <div className="flex flex-col items-center mt-8 max-w-3xl w-11/12 md:w-full">
-                    <h1 className="text-4xl md:text-6xl lg:textxl md:!leading-snug font-semibold text-center bg-clip-text bg-gradient-to-b from-gray-50 to-gray-50 text-transparent">
-                        Trimix: Cut, Clip and Create!
+                    <h1 className="text-4xl md:text-6xl md:!leading-snug font-semibold text-center bg-clip-text">
+                        Trimix: Cut, Clip & Create!
                     </h1>
                     <p className="text-base md:text-lg text-foreground/80 mt-6 text-center">
                     Maximize Your Content, Minimize Your Effort
@@ -104,7 +104,7 @@ const HomePage = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-full divide-x-0 md:divide-x divide-y md:divide-y-0 divide-gray-900 first:border-l-2 lg:first:border-none first:border-gray-900">
                     {perks.map((perk) => (
                         <div key={perk.title} className="flex flex-col items-start px-4 md:px-6 lg:px-8 lg:py-6 py-4">
-                            <div className="flex items-center justify-center">
+                            <div className="flex items-center justify-center text-foreground">
                                 <perk.icon className="w-8 h-8" />
                             </div>
                             <h3 className="text-lg font-medium mt-4">

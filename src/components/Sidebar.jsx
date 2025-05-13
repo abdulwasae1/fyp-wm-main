@@ -14,10 +14,12 @@ import {
   UserCircle,
   Settings as SettingsIcon,
   LifeBuoy,
+  Clipboard,
   ChevronLeft,
   SunMedium,
 } from "lucide-react";
 import SidebarModelCanvas from "@/components/InfinityModel"; // adjust path if needed
+import { ThemeToggle } from "@/components/ThemeToggle"
 
 // import { Canvas } from '@react-three/fiber';
 // import { InfinityModel } from './InfinityModel';
@@ -26,11 +28,10 @@ const sections = [
   {
     title: "",
     items: [
-      { label: "Devices", icon: HardDrive, href: "/devices" },
-      { label: "Favourites", icon: Star, href: "/favourites" },
-      { label: "Profile", icon: UserCircle, href: "/profile" },
-      { label: "Settings", icon: SettingsIcon, href: "/settings" },
       { label: "Help Center", icon: LifeBuoy, href: "/helpcenter" },
+      { label: "Works With", icon: HardDrive, href: "/devices" },
+      { label: "Privacy Policy", icon: Star, href: "/privacypolicy" },
+      { label: "Terms & Conditions", icon: Clipboard, href: "/termsconditions" },
     ],
   },
 ];
@@ -110,14 +111,14 @@ export default function Sidebar() {
   initial="open"
   animate="open"
   variants={container}
-  style={{ backgroundColor: "#0f172a" }}
+  style={{ }}
   className="h-screen sticky top-0 flex flex-col justify-between overflow-hidden
-             text-neutral-200 shadow-xl border-r border-white/10 rounded-r-2xl"
+             shadow-xl border-r border-white/10 rounded-r-2xl"
 >
   {/* Logo */}
   <div className="flex text-center h-16 px-5">
     <motion.div variants={iconContainer} className="flex items-center justify-center">
-      <SunMedium size={24} className="text-amber-400" />
+      {/* <ThemeToggle /> */}
     </motion.div>
   </div>
 
@@ -130,7 +131,7 @@ export default function Sidebar() {
           {section.title && (
             <motion.p
               variants={label}
-              className="px-4 mb-2 text-[10px] uppercase tracking-widest text-neutral-400 whitespace-nowrap overflow-hidden"
+              className="px-4 mb-2 text-[10px] uppercase tracking-widest whitespace-nowrap overflow-hidden"
             >
               {section.title}
             </motion.p>
@@ -148,8 +149,8 @@ export default function Sidebar() {
                   }}
                   className={`flex items-center rounded-lg transition-all duration-100 ease-in-out mt-2 py-2
                               ${active 
-                                ? "bg-white/15 text-white shadow-md shadow-white/5" 
-                                : "text-neutral-300 hover:text-white"}`}
+                                ? "shadow-md shadow-white/5" 
+                                : ""}`}
                 >
                   <div className="flex items-center px-4 w-full">
                     <motion.div variants={iconContainer} className="flex items-center justify-center">

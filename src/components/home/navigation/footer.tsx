@@ -9,7 +9,7 @@ const Footer = () => {
             <div className="hidden lg:block absolute -top-1/3 -right-1/4 bg-primary w-72 h-72 rounded-full -z-10 blur-[14rem]"></div>
             <div className="hidden lg:block absolute bottom-0 -left-1/4 bg-primary w-72 h-72 rounded-full -z-10 blur-[14rem]"></div>
 
-            <div className="grid gap-8 xl:grid-cols-3 xl:gap-8 w-full">
+            <div className="grid gap-8 xl:grid-cols-3 xl:gap-64 w-full">
 
                 <div className="flex flex-col items-start justify-start md:max-w-[200px]">
                     <div className="flex items-start">
@@ -18,7 +18,7 @@ const Footer = () => {
                     <p className="text-muted-foreground mt-4 text-sm text-start">
                         Create multiple short form videos using your long form content with Grace!
                     </p>
-                    <span className="mt-4 text-neutral-200 text-sm flex items-center">
+                    <span className="mt-4 text-sm flex items-center">
                         Made in Pakistan
                     </span>
                 </div>
@@ -26,7 +26,7 @@ const Footer = () => {
                 <div className="grid-cols-2 gap-8 grid mt-16 xl:col-span-2 xl:mt-0">
                     <div className="md:grid md:grid-cols-2 md:gap-8">
                         <div className="">
-                            <h3 className="text-base font-medium text-white">
+                            <h3 className="text-base font-medium">
                                 Product
                             </h3>
                             <ul className="mt-4 text-sm text-muted-foreground">
@@ -42,7 +42,7 @@ const Footer = () => {
                                 </li>
                                 <li className="mt-2">
                                     <Link href="/devices" className="hover:text-foreground transition-all duration-300">
-                                        Devices
+                                        Works With
                                     </Link>
                                 </li>
                                 <li className="mt-2">
@@ -53,7 +53,7 @@ const Footer = () => {
                             </ul>
                         </div>
                         <div className="mt-10 md:mt-0 flex flex-col">
-                            <h3 className="text-base font-medium text-white">
+                            <h3 className="text-base font-medium">
                                 Integrations
                             </h3>
                             <ul className="mt-4 text-sm text-muted-foreground">
@@ -80,46 +80,29 @@ const Footer = () => {
                             </ul>
                         </div>
                     </div>
-                    <div className="md:grid md:grid-cols-2 md:gap-8">
-                        <div className="">
-                            <h3 className="text-base font-medium text-white">
-                                Resources
-                            </h3>
-                            <ul className="mt-4 text-sm text-muted-foreground">
-                                <li className="mt-2">
-                                    <Link href="" className="hover:text-foreground transition-all duration-300">
-                                        Blog
-                                    </Link>
-                                </li>
-                                <li className="mt-2">
-                                    <Link href="" className="hover:text-foreground transition-all duration-300">
-                                        Case Studies
-                                    </Link>
-                                </li>
-                                <li className="mt-2">
-                                    <Link href="" className="hover:text-foreground transition-all duration-300">
-                                        Support
-                                    </Link>
-                                </li>
-                            </ul>
-                        </div>
+                    <div className="md:grid md:grid-cols md:gap-8">
                         <div className="mt-10 md:mt-0 flex flex-col">
-                            <h3 className="text-base font-medium text-white">
+                            <h3 className="text-base font-medium">
                                 Company
                             </h3>
                             <ul className="mt-4 text-sm text-muted-foreground">
                                 <li className="">
+                                    <Link href="/trimixai" className="hover:text-foreground transition-all duration-300">
+                                        Trimix AI
+                                    </Link>
+                                </li>
+                                <li className="mt-2">
                                     <Link href="/aboutus" className="hover:text-foreground transition-all duration-300">
                                         About Us
                                     </Link>
                                 </li>
                                 <li className="mt-2">
-                                    <Link href="" className="hover:text-foreground transition-all duration-300">
+                                    <Link href="/privacypolicy" className="hover:text-foreground transition-all duration-300">
                                         Privacy Policy
                                     </Link>
                                 </li>
                                 <li className="mt-2">
-                                    <Link href="" className="hover:text-foreground transition-all duration-300">
+                                    <Link href="/termsconditions" className="hover:text-foreground transition-all duration-300">
                                         Terms & Conditions
                                     </Link>
                                 </li>

@@ -34,6 +34,9 @@ export const config = {
         "/pricing",
         "/home",
         "/devices",
-        "/helpcenter"
+        "/helpcenter",
+        "/trimixai",
+        "/privacypolicy",
+        "/termsconditions"
     ],
 };

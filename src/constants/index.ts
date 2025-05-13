@@ -1,18 +1,19 @@
 import { Icons } from "@/components";
+import { KeyIcon, Computer, CircleFadingPlusIcon, WandSparklesIcon, Rocket, ZapIcon, Palette, PackageSearch, MonitorSpeaker, Store, Server } from "lucide-react";
 
 export const perks = [
     {
-        icon: Icons.auth,
+        icon: CircleFadingPlusIcon,
         title: "Sign Up",
         info: "Create your free account to get started with Trimix.",
     },
     {
-        icon: Icons.customize,
+        icon: WandSparklesIcon,
         title: "Provide Link",
         info: "Our AI will fetch and start repurposing your main video into engaging content.",
     },
     {
-        icon: Icons.launch,
+        icon: Rocket,
         title: "Publish",
         info: "Publish your Newly created content and share it with the world in interactive way.",
     },
@@ -20,32 +21,32 @@ export const perks = [
 
 export const features = [
     {
-        icon: Icons.bolt,
+        icon: ZapIcon,
         title: "Rapid Deployment",
         info: "Launch your content transformation process instantly with TRIMIX's seamless and automated workflows."
     },
     {
-        icon: Icons.palette,
+        icon: Palette,
         title: "Creative Flexibility",
         info: "Access a wide range of editing tools to customize video clips, ensuring alignment with your brand identity."
     },
     {
-        icon: Icons.seo,
+        icon: PackageSearch,
         title: "Optimized Reach",
         info: "Enhance your content's visibility with tools designed for maximum engagement across social platforms."
     },
     {
-        icon: Icons.monitor,
+        icon: MonitorSpeaker,
         title: "Adaptive Design",
         info: "Ensure your edited videos are perfectly optimized for playback on any device or platform."
     },
     {
-        icon: Icons.shop,
+        icon: Store,
         title: "Integrated Distribution",
         info: "Directly publish your refined video clips to leading social media platforms from within TRIMIX."
     },
     {
-        icon: Icons.server,
+        icon: Server,
         title: "Robust Security",
         info: "Rely on TRIMIX’s secure and efficient hosting for a worry-free content management experience."
     }

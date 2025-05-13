@@ -9,13 +9,13 @@ const DevicesPage = () => {
         <MarketingLayout>
             <section className="w-full py-16 flex flex-col items-center justify-center px-4 md:px-8">
                 <Container>
-                    <div className="flex flex-col items-center text-center gap-16 max-w-5xl mx-auto p-6 bg-indigo-950/30 backdrop-blur-sm rounded-2xl">
+                    <div className="flex flex-col items-center text-center gap-16 max-w-5xl mx-auto p-6 bg-indigo-950/10 backdrop-blur-sm rounded-2xl">
 
                         {/* Devices Introduction */}
                         <FadeInSection direction="bottom">
-                            <div className="flex flex-col items-center gap-6">
+                            <div className="flex flex-col items-center gap-16">
                                 <h1 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-gray-50 to-gray-400">
-                                    Trimix Device Compatibility
+                                    Trimix Works With
                                 </h1>
                                 <p className="text-lg text-muted-foreground max-w-3xl">
                                     Trimix ensures a seamless experience across all your devices. Whether you&apos;re at your desk, on your phone, or using a tablet, Trimix optimizes performance for every screen size and system.
@@ -24,7 +24,7 @@ const DevicesPage = () => {
                         </FadeInSection>
 
                         {/* Device 1 - Cross-Platform Accessibility */}
-                        <div className="flex flex-col md:flex-row items-center gap-10 w-full">
+                        <div className="flex flex-col md:flex-row items-center gap-10 w-full mt-12">
                             <FadeInSection direction="left">
                                 <Globe className="w-20 h-20 text-primary" />
                             </FadeInSection>

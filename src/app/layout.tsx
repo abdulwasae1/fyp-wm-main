@@ -5,6 +5,8 @@ import { ClerkProvider } from "@clerk/nextjs"
 import { dark } from "@clerk/themes"
 import { Inter } from "next/font/google"
 import { DashboardStateProvider } from "./dashboard/DashboardStateContext"
+import ThemeProvider from "@/components/providers/theme-provider"
+import { ThemeToggle } from "@/components/ThemeToggle"
 
 const font = Inter({ subsets: ["latin"] })
 
@@ -24,11 +26,16 @@ export default function RootLayout({
           font.className
         )}
       >
-        <ClerkProvider appearance={{ baseTheme: dark }}>
-          <DashboardStateProvider>
-            {children}
-          </DashboardStateProvider>
-        </ClerkProvider>
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
+          <ClerkProvider appearance={{ baseTheme: dark }}>
+            <DashboardStateProvider>
+              {children}
+              <div className="fixed bottom-4 right-4 z-50">
+                <ThemeToggle />
+              </div>
+            </DashboardStateProvider>
+          </ClerkProvider>
+        </ThemeProvider>
       </body>
     </html>
   )
