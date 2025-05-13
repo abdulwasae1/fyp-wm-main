@@ -61,7 +61,7 @@ const PricingPage = () => {
                                         </CardContent>
                                         <CardFooter className="mt-auto">
                                             <Link
-                                                href="#"
+                                                href="/dashboard"
                                                 className={cn(
                                                     "w-full text-center text-primary-foreground bg-primary p-2 rounded-md text-sm font-medium",
                                                     card.title !== "Unlimited Saas" && "!bg-foreground1 !text-background"
