@@ -303,7 +303,7 @@ const TermsAndConditionsPage = () => {
                                 <div className="flex-1 text-left">
                                     <h2 className="text-3xl font-semibold">Changes to These Terms</h2>
                                     <p className="text-muted-foreground mt-4">
-                                        We may update these Terms from time to time. We'll notify users of significant changes via email or platform notification. Continued use of Trimix constitutes acceptance of the revised Terms.
+                                        We may update these Terms from time to time. We&quot;ll notify users of significant changes via email or platform notification. Continued use of Trimix constitutes acceptance of the revised Terms.
                                     </p>
                                 </div>
                             </FadeInSection>

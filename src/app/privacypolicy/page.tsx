@@ -186,7 +186,7 @@ const PrivacyPolicyPage = () => {
                             </FadeInSection>
                             <FadeInSection direction="bottom" delay={1}>
                                 <div className="flex-1 text-left">
-                                    <h2 className="text-3xl font-semibold">Children's Privacy</h2>
+                                    <h2 className="text-3xl font-semibold">Children&quot;s Privacy</h2>
                                     <p className="text-muted-foreground mt-4">
                                         Trimix is not intended for children under 13 (or 16 in the EU). We do not knowingly collect personal data from children. If you believe a child has provided us with information, please contact us so we can delete it.
                                     </p>
@@ -203,7 +203,7 @@ const PrivacyPolicyPage = () => {
                                 <div className="flex-1 text-left">
                                     <h2 className="text-3xl font-semibold">Changes to This Policy</h2>
                                     <p className="text-muted-foreground mt-4">
-                                        We may update this Privacy Policy from time to time. We'll notify you of material changes via email or platform notification. Continued use of Trimix after updates implies acceptance of the revised policy.
+                                        We may update this Privacy Policy from time to time. We&quot;ll notify you of material changes via email or platform notification. Continued use of Trimix after updates implies acceptance of the revised policy.
                                     </p>
                                 </div>
                             </FadeInSection>
