@@ -51,7 +51,7 @@ const HomePage = () => {
                         Trimix: Cut, Clip & Create!
                     </h1>
                     <p className="text-base md:text-lg text-foreground/80 mt-6 text-center">
-                    Maximize Your Content, Minimize Your Effort
+                    Infinite Possibilities, with Minimal Effort!
                     </p>
                     <div className="hidden md:flex relative items-center justify-center mt-8 md:mt-12 w-full">
                         <Link href="/sign-in" className="flex items-center justify-center w-max rounded-full border-t border-foreground/30 bg-white/20 backdrop-blur-lg px-2 py-1 md:py-2 gap-2 md:gap-8 shadow-3xl shadow-background/40 cursor-pointer select-none">
