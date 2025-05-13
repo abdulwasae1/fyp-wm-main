@@ -16,7 +16,7 @@ interface TranscriptStatusResponse {
 
 interface GeneratedVideosResponse {
   video_paths: string[];
-  message: string;
+  message?: string;
   status?: "not_started" | "processing" | "completed";
 }
 
@@ -27,6 +27,16 @@ const DashboardPage: React.FC = () => {
   // State for video editor popup
   const [showEditor, setShowEditor] = useState(false);
   const [currentEditingVideo, setCurrentEditingVideo] = useState("");
+  const [pollingIntervalId, setPollingIntervalId] = useState<NodeJS.Timeout | null>(null);
+
+  useEffect(() => {
+    // Cleanup function to clear any interval when component unmounts
+    return () => {
+      if (pollingIntervalId) {
+        clearInterval(pollingIntervalId);
+      }
+    };
+  }, [pollingIntervalId]);
 
   const openVideoEditor = (videoUrl: string) => {
     setCurrentEditingVideo(videoUrl);
@@ -269,11 +279,10 @@ const DashboardPage: React.FC = () => {
           ...prev,
           scriptBlob: response.data,
           responseMessage: "Scripts generated successfully.",
-          pollingStarted: true,
           scriptLoading: false
         }));
   
-        // Start polling only once
+        // Start video generation after scripts are generated
         handleGenerateVideos();
       }
     } catch (error: any) {
@@ -300,31 +309,27 @@ const DashboardPage: React.FC = () => {
   };
   
   const handleGenerateVideos = async () => {
-    if (state.pollingStarted) return;
-    setState(prev => ({ ...prev, pollingStarted: true, videoGenerationLoading: true }));
+    setState(prev => ({ 
+      ...prev, 
+      videoGenerationLoading: true,
+      pollingStarted: true,
+      responseMessage: "Starting video generation..."
+    }));
   
     try {
-      // 1) Kick off the generation and grab the returned paths
+      // 1) Kick off the generation process
       const response = await axios.post<GeneratedVideosResponse>("/generate-videos/", {
         transcript_id: "combined",
       });
-      const paths = response.data.video_paths;
-      if (paths.length > 0) {
-        // Initialize downloading states array with false values for each video
-        const initialDownloadingStates = Array(paths.length).fill(false);
-        setState(prev => ({
-          ...prev,
-          generatedVideos: paths,
-          downloadingStates: initialDownloadingStates,
-          videoGenerationLoading: false,
-          pollingStarted: false,
-          processingComplete: true
-        }));
-        return;
-      }      
-  
-      // If for some reason the POST didn't return paths, fall back to polling:
-      pollForVideoStatus();
+      
+      setState(prev => ({
+        ...prev,
+        responseMessage: response.data.message || "Video generation started. Check status endpoint for updates."
+      }));
+      
+      // Start polling for video generation status
+      startPollingForVideoStatus();
+      
     } catch (err) {
       console.error(err);
       setState(prev => ({
@@ -337,39 +342,64 @@ const DashboardPage: React.FC = () => {
     }
   };
 
-  const pollForVideoStatus = () => {
+  const startPollingForVideoStatus = () => {
+    // Clear any existing interval
+    if (pollingIntervalId) {
+      clearInterval(pollingIntervalId);
+    }
+    
+    // Set up a new polling interval
     const interval = setInterval(async () => {
       try {
+        console.log("Polling for video status...");
         const { data } = await axios.get<GeneratedVideosResponse>(
           "/generate-videos/status/",
           { params: { transcript_id: "combined" } }
         );
   
-        if (data.status === "completed") {
+        // Log the response to debug
+        console.log("Video status response:", data);
+        
+        // Check if any videos are ready
+        if (data.status === "completed" && data.video_paths && data.video_paths.length > 0) {
+          console.log("Videos are ready!", data.video_paths);
+          
           // Initialize downloading states array with false values for each video
           const initialDownloadingStates = Array(data.video_paths.length).fill(false);
+          
           setState(prev => ({
             ...prev,
             generatedVideos: data.video_paths,
             downloadingStates: initialDownloadingStates,
             videoGenerationLoading: false,
             pollingStarted: false,
-            processingComplete: true
+            processingComplete: true,
+            responseMessage: "Videos generated successfully!"
           }));
+          
+          // Clear the interval since we're done polling
           clearInterval(interval);
+          setPollingIntervalId(null);
+        } else if (data.status === "processing") {
+          // Update message to keep user informed
+          setState(prev => ({
+            ...prev,
+            responseMessage: "Still generating videos, please wait..."
+          }));
         }
-        // otherwise keep waiting…
       } catch (err) {
-        console.error(err);
+        console.error("Error polling for video status:", err);
+        
+        // Don't stop polling on error, just log it
         setState(prev => ({
           ...prev,
-          videoGenerationLoading: false,
-          pollingStarted: false,
-          processingComplete: true
+          responseMessage: "Checking video generation status..."
         }));
-        clearInterval(interval);
       }
     }, 5000);
+    
+    // Save the interval ID so we can clear it later
+    setPollingIntervalId(interval);
   };
 
   return (
@@ -415,7 +445,9 @@ const DashboardPage: React.FC = () => {
         {state.responseMessage && (
           <p
             className={`mt-4 text-center ${
-              state.responseMessage.startsWith("An error") ? "text-red-500" : "text-green-500"
+              state.responseMessage.includes("error") || state.responseMessage.includes("Error") 
+                ? "text-red-500" 
+                : "text-green-500"
             }`}
           >
             {state.responseMessage}
@@ -438,7 +470,10 @@ const DashboardPage: React.FC = () => {
             </div>
             <div className="flex flex-col sm:flex-row sm:justify-center gap-2 mt-2">
               <Button onClick={downloadTranscription}>Download Transcription</Button>
-              <Button onClick={handleGenerateScripts} disabled={state.scriptLoading || state.pollingStarted}>
+              <Button 
+                onClick={handleGenerateScripts} 
+                disabled={state.scriptLoading || state.videoGenerationLoading}
+              >
                 {state.scriptLoading ? "Generating Scripts..." : "Generate Scripts"}
               </Button>
             </div>
