@@ -242,7 +242,7 @@ const TermsAndConditionsPage = () => {
                                 <div className="flex-1 text-left">
                                     <h2 className="text-3xl font-semibold">Disclaimers</h2>
                                     <p className="text-muted-foreground mt-4">
-                                        Trimix is provided "as is" and "as available." We do not guarantee:
+                                        Trimix is provided &quot;as is&quot; and &quot;as available.&quot; We do not guarantee:
                                     </p>
                                     <ul className="list-disc pl-5 mt-4 text-muted-foreground space-y-2">
                                         <li>Continuous or error-free service.</li>
