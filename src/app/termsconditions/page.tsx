@@ -32,7 +32,7 @@ const TermsAndConditionsPage = () => {
                                     Terms & Conditions
                                 </h1>
                                 <p className="text-lg text-muted-foreground max-w-3xl">
-                                    Welcome to Trimix! These Terms & Conditions ("Terms") govern your use of the Trimix platform, available via our website and applications ("Service"). By accessing or using Trimix, you agree to be bound by these Terms. If you do not agree, please do not use the Service.
+                                    Welcome to Trimix! These Terms & Conditions (&quot;Terms&quot;) govern your use of the Trimix platform, available via our website and applications (&quot;Service&quot;). By accessing or using Trimix, you agree to be bound by these Terms. If you do not agree, please do not use the Service.
                                 </p>
                                 <div className="flex flex-col gap-2">
                                     <p className="text-sm text-muted-foreground">
