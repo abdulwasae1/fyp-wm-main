@@ -5,6 +5,7 @@ const userId = "johndoe@example.com"; // Replace with your logic to fetch the us
 
 const axiosInstance = axios.create({
     baseURL: "https://trimix-api.trimix.site", // Replace with your FastAPI backend URL
+    // baseURL: "http://127.0.0.1:8000", // Replace with your FastAPI backend URL
     timeout: 2400000,
     headers: {
         "Content-Type": "application/json",
