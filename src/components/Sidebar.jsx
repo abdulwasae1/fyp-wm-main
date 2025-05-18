@@ -124,7 +124,7 @@ export default function Sidebar() {
       animate={isSidebarOpen ? "open" : "closed"}
       variants={container}
       className="h-screen sticky top-0 flex flex-col justify-between overflow-hidden
-               shadow-xl border-r border-white/10 rounded-r-2xl"
+               border-r border-white/10 rounded-r-2xl"
     >
       {/* Logo and Toggle Button */}
       <div className="flex items-center justify-between h-16 px-3">
