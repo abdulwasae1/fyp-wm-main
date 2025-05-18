@@ -48,7 +48,7 @@ export default function Sidebar() {
 
   const container = {
     closed: {
-      width: "4%", // Keep a minimal width for icons
+      width: 64, // Keep a minimal width for icons
       transition: {
         type: "spring",
         stiffness: 300,
@@ -180,7 +180,7 @@ export default function Sidebar() {
                         {isSidebarOpen && (
                           <motion.span
                             variants={label}
-                            className="ml-4 font-medium whitespace-nowrap select-none overflow-hidden"
+                            className="ml-4 px-4 font-medium whitespace-nowrap select-none overflow-hidden"
                           >
                             {name}
                           </motion.span>
