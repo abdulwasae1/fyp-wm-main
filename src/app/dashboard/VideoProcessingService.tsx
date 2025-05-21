@@ -204,11 +204,11 @@ export class VideoProcessingService {
           "/generate-videos/status/",
           { params: { transcript_id: "combined" } }
         );
-  
+
         // Log the response to debug
         console.log("Video status response:", data);
         
-        // Check if any videos are available
+        // Check if any videos are available and update the videos list if we have new ones
         if (data.video_paths && data.video_paths.length > 0) {
           console.log("Received videos:", data.video_paths);
           
@@ -221,33 +221,34 @@ export class VideoProcessingService {
               ...prev,
               generatedVideos: data.video_paths,
               downloadingStates: initialDownloadingStates,
-              videoGenerationLoading: data.status !== "completed", // Keep loading if not completed
-              responseMessage: data.status === "completed" 
-                ? "All videos generated successfully!" 
-                : `Received ${data.video_paths.length} videos so far. Still checking for more...`
             }));
           }
-          
-          // Only mark complete and stop polling if status is explicitly "completed"
-          if (data.status === "completed") {
-            this.setState(prev => ({
-              ...prev,
-              pollingStarted: false,
-              processingComplete: true,
-              videoGenerationLoading: false,
-              responseMessage: "All videos generated successfully!"
-            }));
-            
-            // Clear the interval only when the backend says we're done
-            clearInterval(interval);
-            setPollingIntervalId(null);
-          }
-        } else if (data.status === "processing") {
-          // Update message to keep user informed
+        }
+        
+        // Always update status information regardless of new videos
+        this.setState(prev => ({
+          ...prev,
+          videoGenerationLoading: data.status !== "completed",
+          responseMessage: data.status === "completed" 
+            ? "All videos generated successfully!" 
+            : (data.video_paths && data.video_paths.length > 0)
+              ? `Received ${data.video_paths.length} videos so far. Still checking for more...`
+              : "Generating videos, please wait..."
+        }));
+        
+        // Only mark complete and stop polling if status is explicitly "completed"
+        if (data.status === "completed") {
           this.setState(prev => ({
             ...prev,
-            responseMessage: "Generating videos, please wait..."
+            pollingStarted: false,
+            processingComplete: true,
+            videoGenerationLoading: false,
+            responseMessage: "All videos generated successfully!"
           }));
+          
+          // Clear the interval only when the backend says we're done
+          clearInterval(interval);
+          setPollingIntervalId(null);
         }
       } catch (err) {
         console.error("Error polling for video status:", err);
